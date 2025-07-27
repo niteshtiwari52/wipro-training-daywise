@@ -1,0 +1,36 @@
+Control Statements: 
+    -> Which give the flow of execution in C# program so there are 3 types
+        1. Sequential --> step by step
+        2. Conditional --> Decision based(if/else/switch)
+        3. Branch Execution --> (break / continue/return)
+        3. Iterative --> Loops --(for/while/do while)
+
+Syntax:
+
+int age;
+if(age < 10){
+    Console.WriteLine("Eligible for loan")
+} else {
+    Console.WriteLine("Not Eligible for loan")
+
+}
+
+
+Multiple conditions
+
+if(age > 25){
+    Console.WriteLine("Eligible for loan")
+} else if( age > 18) {
+    Console.WriteLine("Eligible for loan and voting both")
+} else {
+    prin("Not Eligible")
+}
+
+
+if(country == "India") {
+    if ( state == "Delhi") {
+        --
+    } else {
+        ---
+    }
+}

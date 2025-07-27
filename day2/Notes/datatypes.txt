@@ -1,0 +1,14 @@
+
+Size of data types :
+
+    int -> 4 bytes
+    long -> 8 bytes
+    float -> 4 bytes
+    double -> 8 bytes
+    bool -> 1 bytes
+    char -> 2 bytes
+    string -> 2 bytes per character
+
+Conversion : 
+1. implicit conversion  ( int16 to int64)
+2. explicit conversion(int64 to int16)

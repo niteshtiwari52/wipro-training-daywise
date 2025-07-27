@@ -1,0 +1,54 @@
+In C# program will start from the Main() which is the entry point of your project
+
+class and the object
+
+what is class ? 
+    It is a blue print og your program structre
+what is object ? 
+    Object is a real time entity( has some existence(like its own properties and behavious(action or methods)))
+
+what is method ? 
+    Method is some set of statements or instructions
+
+for eg. 
+    public void Display() {
+        int a = 10;
+        Console.WriteLine("Display MEthod called")
+    }
+
+<!-- Class 1 -->
+class Student {
+    public void Display() {
+        Console.WriteLine("Printing)
+    }
+}
+
+<!-- Now we call Method of another calss in asome other class -->
+class Program {
+    static void Main(){
+        <!-- class reference variable is pointing to an object -->
+        Student s = new Student();
+        s.Display();
+    }
+}
+
+BCL (Base Class Library): Core Libraries
+
+The BCL provides fundamental classes for basic operations such as collections, file I/O, threading, data types, and more. Examples include System.String, System.Collections.Generic.List<T>, System.IO.File, and System.Threading.Thread.
+
+System
+System.Collections
+System.IO
+System.Threading
+
+CLR: 
+JIT Compilation
+Garbage Collection
+Exceptions Handling
+Security
+Thread Management
+
+
+All user-defined classes in C#, such as Employee and Program, are implicitly inherited from the System.Object class. This means they get basic methods like ToString(), Equals(), GetHashCode(), and GetType() by default.
+
+
