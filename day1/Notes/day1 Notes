@@ -1,0 +1,113 @@
+what is Framework ? 
+
+It is a software or it is a collection of many small technologies integrated together to develop application that can be executed anywhere.
+
+.Net Framework: Library:- collection of some predefined classes methods, properties (.Net Package)
+
+NuGet is a package manager built specifically for .NET that contains over no. of package
+
+It is providing two things: 
+ 1. BCL (Base Class Libraries)
+ 2. CLR (Common Language Runtime)
+
+BCL:- It is a basic building block of .Net Programs. These are installed into the machine when we installed the .Net Framework.  (SDK) BCL provides predefined classes and these classes are used for the purpose of application development
+
+Location: C:/windows/assembly
+
+CLR:- It is a core component under the .Net Framework which is responsible for converting the MSIL( Microsoft Intermediate Language) code into native code.
+
+source code --> Language Compiler --> MSIL/IL/Managed Code(.dll)(IL Disassembler) --> CLR(JIT) --> Native code(code can run on Any OS) --> Execute
+
+.dll --> 
+
+MSIL is a managed code converted by the compiler from HLL and understand by the CLR
+then CLR with the help of JIT it get converted into the native code which OS can understand.
+
+JIT is a component of CLR that is responsible for converting MSIL code to Native code
+
+C# source code(extension .cs) --> Language C# Compiler(Roslyn) --> MSIL/IL/Managed Code / CIL --> CLR(JIT) --> Native code(code can run on Any OS) --> Execute(by OS + CPU(register/Scheduling of your task))
+
+Two extension we have
+
+Executable == .exe
+Library === .DLL
+
+Applications: 
+
+Desktops
+Web App
+Mobile APps
+APIs
+
+
+1. .NET Framwork
+    -> introduced in 2002
+    -> supported by windows only (by default you get when install on windows)
+    -> Desktop Application(WinForms, WPF, APS.NET)
+    -> Slow
+    -> Monolithic
+2. .NET Core / .NET
+    -> .NET Core introduced in 2016
+    -> .NET 5 in 2020
+    -> Cross-platform(supported by any OS)
+    -> Desktop, APS.NET Core, Console, Cloud based, Mobile
+    -> Fast
+    -> Microservices supported ( Distributed)
+
+Both of them are using some common C# library
+
+For Morden /EnterPrise level Applications:
+    1. Visual studio 2022 (Cummunity Edition is free)
+    2. .NET SDK
+
+Includes: 
+    1. .NET CLI Commands (dotnet new, dot build, dotnet run) --> to create a .NET desktop C# application
+    2. ASP .NET Core
+    Blazor
+
+For legacy/Enterprise or windows -Only apps:
+    1. Visual studio 2022
+    2. Add .NET Framework (you get visual studio code editor, or windows OS)
+
+
+C# Web App (.NET Framework) --> It will run on windows Server / IIS
+C# Web App (.NET CORe) --> can run on cloud platforms like azure, docker etc...
+
+
+Commands to create .NET Project
+
+    -> Create project: dotnet new console -n HelloWorld
+    -> Build project: dotnet build
+
+    -> Run project: dotnet run
+
+Conventions to follow while writting a C# program
+
+    1. class Name: User
+    2. method name: AddOperations()
+    3. local variables: camel case  : username password
+
+Data Types: 
+
+1. Value data types
+    1. pre-defined 
+        ->Integer
+        ->Boolean
+        ->Float
+        -> Double
+        -> Char
+    2. user-defined
+        -> Enumeration
+        ->Structure
+2. pointer data types
+3. Referenced data types
+    1. pre-defined 
+        -> Objects
+        -> Strings
+    2. user-defined
+        -> Class
+        -> Interface
+![alt text](image.png)
+
+
+
