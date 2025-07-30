@@ -2,6 +2,10 @@
 **/bin/
 **/obj/
 
+# Visual Studio solution folder
+.vs/
+
+
 # Ignore user-specific files and IDE files
 *.user
 *.suo
