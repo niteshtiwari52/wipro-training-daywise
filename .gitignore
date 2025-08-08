@@ -41,3 +41,5 @@ TestResults/
 Thumbs.db
 
 ~WRL*.tmp
+*.docx
+~$*.docx
