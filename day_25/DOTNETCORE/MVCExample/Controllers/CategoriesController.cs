@@ -46,6 +46,15 @@ namespace MVCExample.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
+            //ViewBag, ViewData, TempData
+
+            ViewBag.Message = "Please make sure there is no duplicate";
+            ViewData["msg"] = "View DAta message";
+            TempData["msg1"] = "TempData message 1";
+            //if(1 == 1)
+            //{
+            //    return RedirectToAction("index");
+            //}
             return View();
         }
 
@@ -54,7 +63,7 @@ namespace MVCExample.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,CreationTime")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +95,7 @@ namespace MVCExample.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,CreationTime")] Category category)
         {
             if (id != category.Id)
             {

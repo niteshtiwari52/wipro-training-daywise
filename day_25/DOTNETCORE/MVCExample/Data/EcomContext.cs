@@ -3,7 +3,7 @@ using MVCExample.Models;
 
 namespace MVCExample.Data
 {
-    public class EcomContext:DbContext
+    public class EcomContext : DbContext
     {
         // creating constructor
         public EcomContext(DbContextOptions<EcomContext> options) : base(options)

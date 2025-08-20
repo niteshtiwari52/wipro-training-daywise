@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-MVCExample-e50b02e0-67a2-4a78-9380-bf17718afc01</UserSecretsId>
+    <UserSecretsId>aspnet-MVCExample-8ce92389-d020-47a8-8c2c-aee9c4ec4ac0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -12,6 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var EcomConnectionString = builder.Configuration.GetConnectionString("EcomConnection") ?? throw new InvalidOperationException("Connection string 'EcomConnection' not found.");
 builder.Services.AddDbContext<EcomContext>(options =>
     options.UseSqlServer(EcomConnectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

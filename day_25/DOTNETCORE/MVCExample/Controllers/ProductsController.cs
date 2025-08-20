@@ -22,7 +22,7 @@ namespace MVCExample.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var ecomContext = _context.Products.Include(p => p.categ);
+            var ecomContext = _context.Products.Include(p => p.category);
             return View(await ecomContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace MVCExample.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.categ)
+                .Include(p => p.category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
@@ -48,7 +48,7 @@ namespace MVCExample.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["categId"] = new SelectList(_context.Categories, "Id", "Id");
+            ViewData["categID"] = new SelectList(_context.Categories, "Id", "Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace MVCExample.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,categId")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,categID")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace MVCExample.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["categId"] = new SelectList(_context.Categories, "Id", "Id", product.categId);
+            ViewData["categID"] = new SelectList(_context.Categories, "Id", "Id", product.categID);
             return View(product);
         }
 
@@ -82,7 +82,7 @@ namespace MVCExample.Controllers
             {
                 return NotFound();
             }
-            ViewData["categId"] = new SelectList(_context.Categories, "Id", "Id", product.categId);
+            ViewData["categID"] = new SelectList(_context.Categories, "Id", "Name", product.categID);
             return View(product);
         }
 
@@ -91,7 +91,7 @@ namespace MVCExample.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,categId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,categID")] Product product)
         {
             if (id != product.Id)
             {
@@ -118,7 +118,7 @@ namespace MVCExample.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["categId"] = new SelectList(_context.Categories, "Id", "Id", product.categId);
+            ViewData["categID"] = new SelectList(_context.Categories, "Id", "Id", product.categID);
             return View(product);
         }
 
@@ -131,7 +131,7 @@ namespace MVCExample.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.categ)
+                .Include(p => p.category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
