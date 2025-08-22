@@ -10,27 +10,22 @@ using MVCExample.Models;
 
 namespace MVCExample.Controllers
 {
-    public class CategoriesController : Controller
+    public class UsersController : Controller
     {
         private readonly EcomContext _context;
 
-        public CategoriesController(EcomContext context)
+        public UsersController(EcomContext context)
         {
             _context = context;
         }
 
-        // GET: Categories
+        // GET: Users
         public async Task<IActionResult> Index()
-        {   
-            //we  can send list by 2 methods 
-            // method 1: by returning like this in view directly.
-            //return View(await _context.Categories.ToListAsync());
-              
-            List<Category> categList = await _context.Categories.ToListAsync();
-            return View(categList);
+        {
+            return View(await _context.Users.ToListAsync());
         }
 
-        // GET: Categories/Details/5
+        // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,48 +33,39 @@ namespace MVCExample.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(category);
+            return View(user);
         }
 
-        // GET: Categories/Create
+        // GET: Users/Create
         public IActionResult Create()
         {
-            //ViewBag, ViewData, TempData
-
-            ViewBag.Message = "Please make sure there is no duplicate";
-            ViewData["msg"] = "View DAta message";
-            TempData["msg1"] = "TempData message 1";
-            //if(1 == 1)
-            //{
-            //    return RedirectToAction("index");
-            //}
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,CreationTime")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Age,description,TimeStamp")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(category);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            return View(user);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,22 +73,22 @@ namespace MVCExample.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(category);
+            return View(user);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,CreationTime")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Age,description,TimeStamp")] User user)
         {
-            if (id != category.Id)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -111,12 +97,12 @@ namespace MVCExample.Controllers
             {
                 try
                 {
-                    _context.Update(category);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.Id))
+                    if (!UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -127,10 +113,10 @@ namespace MVCExample.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            return View(user);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,34 +124,34 @@ namespace MVCExample.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(category);
+            return View(user);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Categories.Remove(category);
+                _context.Users.Remove(user);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }
