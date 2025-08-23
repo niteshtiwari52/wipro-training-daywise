@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCExample.Data;
-using MVCExample.Models;
+//using MVCExample.Models;
+using Models;
 
 namespace MVCExample.Controllers
 {

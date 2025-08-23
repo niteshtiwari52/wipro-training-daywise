@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MVCExample.Models;
+//using MVCExample.Models;
+using Models;
 
 namespace MVCExample.Data
 {
