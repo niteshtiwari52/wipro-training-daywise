@@ -1,0 +1,22 @@
+<div class="category-container cart">
+  <h1 class="category-heading">Your Cart</h1>
+
+    <div class="no-products" *ngIf="products.length === 0">
+    <p>No Items in your cart.</p>
+  </div>
+  <div class="top-picks-section" *ngIf="products.length > 0">
+    <div class="product-card cart-items" *ngFor="let product of products">
+      <div class="product-info">
+        <h3>{{product.name}}d</h3>
+        <p>{{product.description}}</p>
+        <p class="price">${{product.price.toFixed(2)}}</p>
+        <button class="" (click)="removeFromCart(product.id)">Remove</button>
+        <!-- <button class="clear-cart-btn" ">Clear Cart</button> -->
+      </div>
+    </div>
+    <div class="clear-cart-div">
+        <h2>Total: ${{ getTotalPrice().toFixed(2) }}</h2>
+        <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
+    </div>
+
+</div>

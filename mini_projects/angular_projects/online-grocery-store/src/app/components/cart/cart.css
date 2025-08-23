@@ -1,0 +1,30 @@
+.cart {
+    background-color: #e2e2e2;
+}
+
+.cart h1 {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.cart-items {
+    background-color: #e2e2e2;
+}
+.clear-cart-div {
+    padding: 15px;
+}
+.clear-cart-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-cart-btn:hover {
+  background: #c9302c;
+}

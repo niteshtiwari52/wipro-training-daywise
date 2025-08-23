@@ -1,0 +1,53 @@
+<div class="home-container">
+  <div class="welcome-section">
+    <h1>Welcome to Our Online Grocery Store!</h1>
+    <p>Your one-stop shop for all your grocery needs. Browse our wide range of products and enjoy the best quality and prices.</p>
+    <p>Happy shopping!</p>
+  </div>
+
+
+  <div class="top-picks-section" *ngIf="topRecommended.length > 0">
+    <div class="product-card" *ngFor="let product of topRecommended">
+      <div class="product-info">
+        <h3>{{product.name}}</h3>
+        <p>{{product.description}}</p>
+        <p class="price">${{product.price.toFixed(2)}}</p>
+        <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- <app-product-card></app-product-card> -->
+  </div>
+
+  <!-- <div class="categories-section">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <div class="category-card" routerLink="/top-recommended">
+        <h3>Top Recommended</h3>
+        <p>Best picks for you</p>
+      </div>
+      <div class="category-card" routerLink="/fruits">
+        <h3>Fruits</h3>
+        <p>Fresh seasonal fruits</p>
+      </div>
+      <div class="category-card" routerLink="/vegetables">
+        <h3>Vegetables</h3>
+        <p>Farm fresh vegetables</p>
+      </div>
+      <div class="category-card" routerLink="/dairy">
+        <h3>Dairy</h3>
+        <p>Milk, cheese & more</p>
+      </div>
+      <div class="category-card" routerLink="/snacks">
+        <h3>Snacks</h3>
+        <p>Tasty snacks & treats</p>
+      </div>
+      <div class="category-card" routerLink="/bread">
+        <h3>Bread</h3>
+        <p>Fresh baked bread</p>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <app-categories></app-categories> -->
+</div>

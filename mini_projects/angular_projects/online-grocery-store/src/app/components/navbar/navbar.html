@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="nav-brand">
+    <a routerLink="/">
+      <h2>
+        Online Grocery Store
+      </h2>
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/top-recommended">Top Recommended</a></li>
+    <li><a routerLink="/fruits">Fruits</a></li>
+    <li><a routerLink="/vegetables">Vegetables</a></li>
+    <li><a routerLink="/dairy">Dairy</a></li>
+    <li><a routerLink="/snacks">Snacks</a></li>
+    <li><a routerLink="/cheese">Cheese</a></li>
+    <li><a routerLink="/breads">Bread</a></li>
+    <li><a routerLink="/canned-goods">Canned Goods</a></li>
+    <li class="cart-link">
+      <a routerLink="/cart">
+        Cart 
+        <span class="cart-count" *ngIf="cartCount > 0">{{cartCount}}</span>
+        <!-- <span class="cart-count" > 2</span> -->
+      </a>
+    </li>
+  </ul>
+</nav>
