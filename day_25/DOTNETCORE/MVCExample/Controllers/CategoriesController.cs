@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCExample.Data;
-using MVCExample.Models;
+//using MVCExample.Models;
+using Models;
 
 namespace MVCExample.Controllers
 {
@@ -21,7 +22,7 @@ namespace MVCExample.Controllers
 
         // GET: Categories
         public async Task<IActionResult> Index()
-        {   
+        {
             //we  can send list by 2 methods 
             // method 1: by returning like this in view directly.
             //return View(await _context.Categories.ToListAsync());

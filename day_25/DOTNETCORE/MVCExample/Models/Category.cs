@@ -1,12 +1,12 @@
-﻿namespace MVCExample.Models
-{
-    public class Category
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
+﻿//namespace MVCExample.Models
+//{
+//    public class Category
+//    {
+//        public int Id { get; set; }
+//        public string Name { get; set; }
 
-        public string Description { get; set; }
+//        public string Description { get; set; }
 
-        public DateTime CreationTime { get; set; } = DateTime.UtcNow;
-    }
-}
+//        public DateTime CreationTime { get; set; } = DateTime.UtcNow;
+//    }
+//}
