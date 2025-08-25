@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MVCExample.ExceptionClasses;
 using MVCExample.Models;
 using System.Diagnostics;
 
@@ -25,12 +26,19 @@ namespace MVCExample.Controllers
 
         public IActionResult Privacy()
         {
-            // Retrive Session values
-            string? userName = HttpContext.Session.GetString("UserName");
-            int? userId = HttpContext.Session.GetInt32("UserId");
-            ViewBag.UserName = userName;
-            ViewBag.UserId = userId;
-            return View();
+            try
+            {
+                // Retrive Session values
+                string? userName = HttpContext.Session.GetString("UserName");
+                int? userId = HttpContext.Session.GetInt32("UserId");
+                ViewBag.UserName = userName;
+                ViewBag.UserId = userId;
+                return View();
+            } catch (MyExceptionClass ex)
+            {
+               return Ok(ex.Message);
+            }
+           
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
