@@ -13,6 +13,13 @@ var EcomConnectionString = builder.Configuration.GetConnectionString("EcomConnec
 builder.Services.AddDbContext<EcomContext>(options =>
     options.UseSqlServer(EcomConnectionString));
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
+    options.Cookie.HttpOnly = true;                 // Prevent JS access
+    options.Cookie.IsEssential = true;              // Required for GDPR
+});
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -33,6 +40,7 @@ else
     app.UseHsts();
 }
 
+app.UseSession(); // before routing we have to use
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
