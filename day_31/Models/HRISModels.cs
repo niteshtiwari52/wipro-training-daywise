@@ -14,6 +14,7 @@ namespace Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Department Name is required")]
         [StringLength(50, ErrorMessage = "Department Name can not exceed 50 characters")]
+        [Display(Name = "Department Name")]
         public string Name { get; set; }  
     }
 
@@ -25,10 +26,11 @@ namespace Models
         [Required(ErrorMessage = "Employee Name is required")]
         public int Name { get; set; }
 
-        [ForeignKey("Department")]
-        [Required(ErrorMessage = "DepartmentId is required")]
+        [ForeignKey("dept")]
+        [Required(ErrorMessage = "Department is required")]
 
-        public int DepartmentId { get; set; }
+        public int DeptId { get; set; }
+        public Department? dept { get; set; }
 
     }
 
