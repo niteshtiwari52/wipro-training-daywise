@@ -1,6 +1,7 @@
 using HRISApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using Repos;
 using Repos.Repos;
 using Services;
@@ -17,6 +18,11 @@ builder.Services.AddDbContext<RepoContext>(options =>
     options.UseSqlServer(conn));
 builder.Services.AddScoped<IDept, Dept>();
 builder.Services.AddScoped<DepartmentService, DepartmentService>();
+
+// Generic Repository Pattern
+builder.Services.AddScoped<IRepogeneric<Models.Department>, Repogeneric<Models.Department>>();
+//builder.Services.AddScoped<IRepogeneric<Models.Employee>, Repogeneric<Models.Employee>>();
+builder.Services.AddScoped<IServiceClass<Department>, IServiceClass<Department>>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
