@@ -9,15 +9,18 @@ namespace Transport_Management_System.Models
         public int VehicleID { get; set; }
 
         [Required, StringLength(255)]
-        public string Model { get; set; }
+        public required string Model { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal Capacity { get; set; }
 
         [Required, StringLength(50)]
-        public string Type { get; set; } // Truck, Van, Bus
+        public required string Type { get; set; } // Truck, Van, Bus
 
         [Required, StringLength(50)]
-        public string Status { get; set; } // Available, On Trip, Maintenance
+        public required string Status { get; set; } // Available, On Trip, Maintenance
+
+        // 🔗 Navigation: A vehicle can have many trips
+        public ICollection<Trip>? Trips { get; set; }
     }
 }
