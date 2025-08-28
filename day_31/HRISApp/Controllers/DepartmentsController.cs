@@ -8,14 +8,18 @@ namespace HRISApp.Controllers
     public class DepartmentsController : Controller
     {
         private readonly DepartmentService _Service;
-        public DepartmentsController(DepartmentService service)
+        private readonly IServiceClass<Department> _context;
+        public DepartmentsController(DepartmentService service, IServiceClass<Department> context)
         {
             _Service = service;
+            _context = context;
         }
         // GET: DepartmentsController
         public ActionResult Index()
         {
-            List<Department> deptLsit = _Service.GetDepartments();
+            //List<Department> deptLsit = _Service.GetDepartments();
+            // using generic service class
+            List<Department> deptLsit2 = _context.GetList().ToList();
             return View(deptLsit);
         }
 
