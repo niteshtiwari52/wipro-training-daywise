@@ -15,9 +15,21 @@ namespace SampleMVC1.Controllers
             _userManager = user;
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
+            var isAdmin = User.IsInRole("Admin");
+            // if user role is admin then send message " welcome to admin dashboard" else " welcome to user dashboard"
+            //ViewBag.Message = "Welcome to Admin Dashboard";
+
+            if (isAdmin)
+            {
+                ViewBag.Message = "Welcome to Admin Dashboard";
+            }
+            else
+            {
+                ViewBag.Message = "Welcome to User Dashboard";
+            }
             return View();
         }
 
