@@ -20,7 +20,7 @@ namespace HRISApp.Controllers
             //List<Department> deptLsit = _Service.GetDepartments();
             // using generic service class
             List<Department> deptLsit2 = _context.GetList().ToList();
-            return View(deptLsit);
+            return View(deptLsit2);
         }
 
         // GET: DepartmentsController/Details/5

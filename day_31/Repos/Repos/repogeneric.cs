@@ -33,11 +33,13 @@ namespace Repos.Repos
                 _context.Add(Obj);
                 _context.SaveChanges();
                 return "Record Added Successfully ";
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return $"Error Occured {ex.Message}";
 
             }
+        }
         public string Delete(T Obj)
         {
             //throw new NotImplementedException();
